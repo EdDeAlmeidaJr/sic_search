@@ -15,8 +15,6 @@ end
 
 code = opts.arguments[0]
 
-puts "Code:        #{code}"
-
 res =  SIC::search(code)
 
 res.each { |k,v| puts "#{k.capitalize}: #{v}" }

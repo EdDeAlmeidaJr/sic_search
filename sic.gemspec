@@ -4,7 +4,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'sic/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "naics"
+  spec.name          = "sic"
   spec.version       = SIC::VERSION
   spec.authors       = ["Ed de Almeida"]
   spec.email         = ["edvaldoajunior@gmail.com"]
