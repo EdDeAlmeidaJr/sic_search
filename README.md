@@ -1,8 +1,9 @@
-# Sic
+# SIC
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/sic`. To experiment with that code, run `bin/console` for an interactive prompt.
+SIC = Standard Industrial Classification
 
-TODO: Delete this and the text above, and describe your gem
+Every industry in the USA has a SIC code and sometimes you need to know what this code means. This is what this Ruby gem does.
+
 
 ## Installation
 
@@ -20,9 +21,52 @@ Or install it yourself as:
 
     $ gem install sic
 
+
 ## Usage
 
-TODO: Write usage instructions here
+In order to use this gem, do
+
+```ruby
+    require 'sic'
+```
+
+in your code, and use the method `#search('string_with_the_code')`. The result will be an object in the format
+
+    {
+      :code => "string_with_the_code",
+      :description => "Description for the code given, if it exists"
+    }
+
+For example, in you run
+
+```ruby
+    SIC.search('5084')
+```
+
+your output will be
+
+    {
+      :code => "5084",
+      :description => "Industrial Machinery and Equipment"
+    }
+
+**Important:** If you get `:description => nil`, this only means the code you provided does not exist.
+
+
+## Command line
+
+This gem also provides a command line executable you may use. Only type
+
+    $ naics 5084
+
+and you'll get an output like:
+
+    Code:        5084
+    Description: Industrial Machinery and Equipment
+
+
+**Important:** If you get no text in `Description:`, this only means the code you provided does not exist.
+
 
 ## Development
 
@@ -30,9 +74,15 @@ After checking out the repo, run `bin/setup` to install dependencies. Then, run 
 
 To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
 
+
+## Things to do for future releases
+
+- Search SIC codes for given keywords.
+
+
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/sic.
+Bug reports and pull requests are welcome on GitHub at https://github.com/EdDeAlmeidaJr/sic_search.
 
 
 ## License
